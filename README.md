@@ -1,4 +1,4 @@
-JSON-RPC client for https://getblock.io/.
+JSON-RPC client for https://getblock.io.
 
 ## Install
 ```sh
@@ -9,9 +9,7 @@ go get github.com/ofen/getblock-go
 https://getblock.io/docs/get-started/auth-with-api-key/
 
 ## Example
-```sh
-TODO
-```
+https://github.com/ofen/wtop
 
 ## Documentation
 https://getblock.io/docs/
