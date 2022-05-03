@@ -25,9 +25,16 @@ const (
 	Ether = 1e18
 )
 
+// Endpoint is default endpoint for etherium mainnet.
+const Endpoint = "https://eth.getblock.io/mainnet/"
+
 // New creates JSON-RPC client for https://eth.getblock.io/mainnet/.
-func New(token string, options *getblock.ClientOptions) *Client {
-	return &Client{getblock.New(token, options)}
+func New(token string) *Client {
+	return NewWithEndpoint(token, Endpoint)
+}
+
+func NewWithEndpoint(token, endpoint string) *Client {
+	return &Client{getblock.New(token, endpoint)}
 }
 
 // Client is JSON-RPC client

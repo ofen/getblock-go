@@ -6,23 +6,10 @@ import (
 	"github.com/ybbus/jsonrpc/v3"
 )
 
-// Endpoint is default endpoint for etherium mainnet.
-const Endpoint = "https://eth.getblock.io/mainnet/"
-
 const authorizationHeaderKey = "x-api-key"
 
-type ClientOptions struct {
-	Endpoint string
-}
-
-// New creates JSON-RPC client for https://eth.getblock.io/mainnet/.
-func New(token string, options *ClientOptions) *Client {
-	endpoint := Endpoint
-	if options != nil {
-		if options.Endpoint != "" {
-			endpoint = options.Endpoint
-		}
-	}
+// New creates JSON-RPC client for https://getblock.io.
+func New(token string, endpoint string) *Client {
 	return &Client{
 		Client: jsonrpc.NewClientWithOpts(endpoint, &jsonrpc.RPCClientOpts{
 			CustomHeaders: map[string]string{authorizationHeaderKey: token},
