@@ -19,7 +19,7 @@ import (
 func main() {
     ctx := context.Background()
 
-    client := eth.New("api-token")
+    client := eth.New("your-api-token")
     head, err := client.BlockNumber(ctx)
     if err != nil {
         panic(err)
