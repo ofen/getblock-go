@@ -8,16 +8,17 @@ import (
 
 const authorizationHeaderKey = "x-api-key"
 
-// New creates JSON-RPC client for https://getblock.io.
+// New creates Client.
 func New(token string, endpoint string) *Client {
-	return &Client{
-		Client: jsonrpc.NewClientWithOpts(endpoint, &jsonrpc.RPCClientOpts{
-			CustomHeaders: map[string]string{authorizationHeaderKey: token},
-		}),
+	opts := &jsonrpc.RPCClientOpts{}
+	if token != "" {
+		opts.CustomHeaders = map[string]string{authorizationHeaderKey: token}
 	}
+
+	return &Client{jsonrpc.NewClientWithOpts(endpoint, opts)}
 }
 
-// Client is JSON-RPC client
+// Client is common JSON-RPC client.
 type Client struct {
 	Client jsonrpc.RPCClient
 }

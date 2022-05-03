@@ -5,11 +5,29 @@ JSON-RPC client for https://getblock.io.
 go get github.com/ofen/getblock-go
 ```
 
-## API token
-https://getblock.io/docs/get-started/auth-with-api-key/
-
 ## Example
-https://github.com/ofen/wtop
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+
+    "github.com/ofen/getblock-go/eth"
+)
+
+func main() {
+    ctx := context.Background()
+
+    client := eth.New("api-token")
+    head, err := client.BlockNumber(ctx)
+    if err != nil {
+        panic(err)
+    }
+
+    fmt.Println(head)
+}
+```
 
 ## Documentation
 https://getblock.io/docs/
