@@ -1,4 +1,4 @@
-JSON-RPC client for https://getblock.io.
+JSON-RPC client for [getblock.io](https://getblock.io).
 
 ## Install
 ```sh
